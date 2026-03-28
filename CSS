@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #232F34;
+    font-family: 'Outfit', sans-serif;
+    overflow: hidden;
+}
+
+/* Splash Screen Animation */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1B2429;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeOutSplash 0.8s ease forwards 3.5s;
+}
+
+.splash-name {
+    font-family: 'Dancing Script', cursive;
+    font-size: 55px;
+    color: #F9AA33;
+    opacity: 0;
+    transform: scale(0.8) rotate(-5deg);
+    animation: writeMotion 1.5s ease forwards 0.5s;
+    text-align: center;
+}
+
+.splash-sub {
+    font-size: 14px;
+    color: #FFFFFF;
+    margin-top: 15px;
+    opacity: 0;
+    animation: fadeInSub 1s ease forwards 2s;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+@keyframes writeMotion {
+    100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+@keyframes fadeInSub {
+    100% { opacity: 0.8; }
+}
+
+@keyframes fadeOutSplash {
+    100% { opacity: 0; visibility: hidden; }
+}
+
+/* Master App Layout */
+.app-hidden {
+    opacity: 0;
+    animation: showApp 1s ease forwards 4s;
+}
+
+@keyframes showApp {
+    100% { opacity: 1; }
+}
+
+.screens {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 80px;
+}
+
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: block;
+}
+
+/* Unified Bottom Navigation */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #1B2429;
+    display: flex;
+    padding: 10px 0;
+    border-top: 1px solid #344955;
+    z-index: 1000;
+}
+
+.nav-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #6E8A97;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Outfit', sans-serif;
+    cursor: pointer;
+}
+
+.nav-btn.active {
+    color: #F9AA33;
+}
+
+.nav-icon {
+    font-size: 24px;
+    margin-bottom: 4px;
+}
